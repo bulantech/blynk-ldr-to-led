@@ -39,12 +39,20 @@ void loop()
 }
 
 void ldrBlink() {  
+  int ldrValueBuff;
+  if(ldrValue >= 1000) ldrValueBuff = 1023;
+  else if(ldrValue >= 750) ldrValueBuff = 1000;
+  else if(ldrValue >= 500) ldrValueBuff = 750;
+  else if(ldrValue >= 250) ldrValueBuff = 500;
+  else if(ldrValue >= 10) ldrValueBuff = 250;
+  else ldrValueBuff = 0;
+  
   if(stateV1) {
     analogWrite(lampPin, 1023);
     Serial.println("analogWrite = 1023" );
   } else {
-    analogWrite(lampPin, ldrValue);
-    Serial.println("analogWrite = " + String(ldrValue));
+    analogWrite(lampPin, ldrValueBuff);
+    Serial.println("analogWrite = " + String(ldrValueBuff));
   }
   digitalWrite(LED_BUILTIN, LOW);  
   delay(100);
@@ -70,5 +78,3 @@ BLYNK_WRITE(V5)
   Serial.println("V5 pinValue = " + String(pinValue));
   ldrValue = pinValue;
 }
-
-
