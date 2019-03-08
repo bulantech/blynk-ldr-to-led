@@ -41,10 +41,11 @@ void loop()
 void ldrBlink() {  
   int ldrValueBuff;
   if(ldrValue >= 1000) ldrValueBuff = 1023;
-  else if(ldrValue >= 750) ldrValueBuff = 1000;
-  else if(ldrValue >= 500) ldrValueBuff = 750;
-  else if(ldrValue >= 250) ldrValueBuff = 500;
-  else if(ldrValue >= 10) ldrValueBuff = 250;
+  else if(ldrValue >= 850) ldrValueBuff = 1000;
+  else if(ldrValue >= 700) ldrValueBuff = 850;
+  else if(ldrValue >= 550) ldrValueBuff = 700;
+  else if(ldrValue >= 400) ldrValueBuff = 550;
+  else if(ldrValue >= 250) ldrValueBuff = 400;
   else ldrValueBuff = 0;
   
   if(stateV1) {
